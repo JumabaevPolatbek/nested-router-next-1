@@ -24,8 +24,11 @@ export const getServerSideProps: GetServerSideProps<{
     },
   };
 };
-
-const Index = ({ user, posts }: { user: User; posts: Post[] }) => {
+type Props = {
+  user: User;
+  posts: Post[];
+};
+const User: React.FC<Props> = ({ user, posts }) => {
   const { name, address, phone, id } = user;
   const { query, back } = useRouter();
   return (
@@ -70,4 +73,4 @@ const Index = ({ user, posts }: { user: User; posts: Post[] }) => {
   );
 };
 
-export default Index;
+export default User;

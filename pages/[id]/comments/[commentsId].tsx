@@ -24,8 +24,11 @@ export const getServerSideProps: GetServerSideProps<{
     },
   };
 };
-
-const Comments = ({ comments, post }: { comments: Comment[]; post: Post }) => {
+type Props = {
+  comments: Comment[];
+  post: Post;
+};
+const Comments: React.FC<Props> = ({ comments, post }) => {
   const router = useRouter();
   const handleBack = () => router.back();
   return (
