@@ -1,10 +1,9 @@
 import ListComment from "@/components/ListComment";
 import { Comment } from "@/types/comment";
 import { Post } from "@/types/post";
-import Button from "@mui/material/Button/Button";
 import Paper from "@mui/material/Paper";
 import { GetServerSideProps } from "next";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const getServerSideProps: GetServerSideProps<{
@@ -26,15 +25,15 @@ export const getServerSideProps: GetServerSideProps<{
   };
 };
 
-const comments = ({ comments, post }: { comments: Comment[]; post: Post }) => {
-  //   const router = useRouter();
-  //   const handleBack = () => router.back();
+const Comments = ({ comments, post }: { comments: Comment[]; post: Post }) => {
+  const router = useRouter();
+  const handleBack = () => router.back();
   return (
     <Paper elevation={2} className="mt-2 py-2 px-2 bg-slate-400">
       <button
         type="button"
         className="py-2 px-3 bg-red-500 text-[18px] checked:bg-red-300 transition-all"
-        // onClick={handleBack}
+        onClick={handleBack}
       >
         Назад
       </button>
@@ -54,4 +53,4 @@ const comments = ({ comments, post }: { comments: Comment[]; post: Post }) => {
   );
 };
 
-export default comments;
+export default Comments;

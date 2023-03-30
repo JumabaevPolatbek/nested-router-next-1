@@ -25,9 +25,8 @@ export const getServerSideProps: GetServerSideProps<{
   };
 };
 
-const index = ({ user, posts }: { user: User; posts: Post[] }) => {
+const Index = ({ user, posts }: { user: User; posts: Post[] }) => {
   const { name, address, phone, id } = user;
-  // const router = useRouter();
   const { query, back } = useRouter();
   return (
     <Paper elevation={2} className="mt-2 py-4 px-3 bg-gray-400">
@@ -71,4 +70,4 @@ const index = ({ user, posts }: { user: User; posts: Post[] }) => {
   );
 };
 
-export default index;
+export default Index;
