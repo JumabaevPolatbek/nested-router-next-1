@@ -28,11 +28,12 @@ export const getServerSideProps: GetServerSideProps<{
 const index = ({ user, posts }: { user: User; posts: Post[] }) => {
   const { name, address, phone, id } = user;
   // const router = useRouter();
+  const { query, back } = useRouter();
   return (
     <Paper elevation={2} className="mt-2 py-4 px-3 bg-gray-400">
       <button
         className="py-2 px-3 bg-red-500 text-[18px] checked:bg-red-300 transition-all"
-        // onClick={() => router.back()}
+        onClick={() => back()}
       >
         Назад
       </button>
@@ -54,7 +55,7 @@ const index = ({ user, posts }: { user: User; posts: Post[] }) => {
           <li key={post.id}>
             <Link
               href={{
-                pathname: `${router.query.id}/comments/${post.id}`,
+                pathname: `${query.id}/comments/${post.id}`,
                 query: {
                   postId: post.id,
                 },
