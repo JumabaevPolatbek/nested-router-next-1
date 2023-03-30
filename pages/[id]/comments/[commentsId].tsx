@@ -28,13 +28,14 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 const comments = ({ comments, post }: { comments: Comment[]; post: Post }) => {
-  const router = useRouter();
-  const handleBack = () => router.back();
+  //   const router = useRouter();
+  //   const handleBack = () => router.back();
   return (
     <Paper elevation={2} className="mt-2 py-2 px-2 bg-slate-400">
       <button
+        type="button"
         className="py-2 px-3 bg-red-500 text-[18px] checked:bg-red-300 transition-all"
-        onClick={handleBack}
+        // onClick={handleBack}
       >
         Назад
       </button>
